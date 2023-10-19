@@ -21,7 +21,7 @@ fetch('https://rickandmortyapi.com/api/character/2', {method:'GET'})
     let text=document.getElementById("ej2");
     text.textContent=datosJson2.name;
 })
-*/
+
 
 let jsonData;
 fetch('persona.json',{method: 'POST',body: JSON.stringify(
@@ -39,3 +39,13 @@ fetch('persona.json',{method: 'POST',body: JSON.stringify(
     'Content-Type':'application/json' //indica que pasamos dato en formato json
 }})
 .then(response)
+*/
+
+fetch('https://rickandmortyapi.com/api/character/2',{method: 'GET'})
+.then(response=>response.json())
+.then(salida=>{
+
+    let imagen=document.getElementById("imagen");    
+    imagen.setAttribute("src",salida.image);
+
+}).catch(error=>console.log("ERROR: "+error));
