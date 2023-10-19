@@ -72,3 +72,8 @@ function obtenerDatoUser(id, callback){
 }
 
 obtenerDatoUser(23, (user)=>console.log(`User: ${user.user}, id: ${user.userId}`));
+function getData(){
+    setTimeout(()=>{
+        const data='https://jsonplaceholder.typicode.com/posts/1'
+    })
+}
