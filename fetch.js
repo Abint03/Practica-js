@@ -11,3 +11,13 @@ fetch('persona.json',{method:'GET'})//de web api, retorna promise
     texto.textContent=datosJson.nombre;
 })
 //si se resuelve, then va a retornar el recurso que estábamos buscando. Se pueden concatenar .then
+
+let datosJson2;
+
+fetch('https://rickandmortyapi.com/api/character/2', {method:'GET'})
+.then(response=>response.json())
+.then(salida=>{
+    datosJson2=salida;
+    let text=document.getElementById("ej2");
+    text.textContent=datosJson2.name;
+})
