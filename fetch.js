@@ -39,7 +39,7 @@ fetch('persona.json',{method: 'POST',body: JSON.stringify(
     'Content-Type':'application/json' //indica que pasamos dato en formato json
 }})
 .then(response)
-*/
+
 
 fetch('https://rickandmortyapi.com/api/character/2',{method: 'GET'})
 .then(response=>response.json())
@@ -49,3 +49,29 @@ fetch('https://rickandmortyapi.com/api/character/2',{method: 'GET'})
     imagen.setAttribute("src",salida.image);
 
 }).catch(error=>console.log("ERROR: "+error));
+*/
+
+
+async function getImageById(id){
+    try{
+        const url = `https://rickandmortyapi.com/api/character/${id}`;
+        const responseAPI=await fetch(url,{method: 'GET'});
+        if(!responseAPI.ok){
+            throw new Error('NO SE PUDO OBTENER EL DATO');
+        }
+        const data= await responseAPI.json();
+        return data;
+
+    }catch(error){
+        throw error;
+    }
+
+}
+
+document.getElementById("generador").addEventListener("click",(event)=>{
+    const randomNum=Math.round(Math.random()*826)+1;
+    getImageById(randomNum).then(response=>{
+        let imagen=document.getElementById("imagen");
+        imagen.setAttribute("src",response.image);
+    })
+});
