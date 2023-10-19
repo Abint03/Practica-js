@@ -1,0 +1,10 @@
+{
+    "nombre":"Abi",
+    "edad":19,
+    "estudiante":true,
+    "direccion":{
+        "calle":"Independencia",
+        "nro":1131,
+        "ciudad": "Mar del plata"
+    }
+}
